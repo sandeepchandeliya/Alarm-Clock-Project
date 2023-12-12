@@ -1,0 +1,148 @@
+/* GLOBAL STYLE FOR THE PAGE */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  
+}
+
+body {
+  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+
+.flex {
+  display: flex;
+}
+
+.btn {
+  outline: none;
+  border: none;
+  background-color: #FED9ED;
+  cursor: pointer;
+  padding: 0.5rem;
+  border-radius: 1px;
+  
+}
+select {
+  appearance: none;
+  outline: black;
+  background-color: #FED9ED;
+  padding: 0.5rem;
+  font-weight: bold;
+  border: none;
+  border-radius: 2rem;
+  margin-right: 0.3rem;
+  cursor: pointer;
+  color: #0e141b;
+  border-color: black;
+}
+
+.mb {
+  margin-bottom: 1rem;
+}
+ 
+
+
+.container {
+  background-color: #67729D;
+  min-height: 100vh;
+  align-items: center;
+  justify-content: center;
+  
+}
+
+
+ /* CLOCK CONTENT AND ALARM CLOCK */
+ .clock-content {
+  margin-bottom: 50%;
+  padding: 2rem;
+  flex-flow: column;
+  justify-content: flex-start;
+  align-items: center;
+  width: 100%;
+  min-height: 100vh;
+  border-radius: 50%;
+  background-color:#BB9CC0;
+}
+
+.current-time {
+  font-size: 2rem;
+  color: black;
+}
+
+.alarm-form {
+  justify-content: space-between;
+  width: 100%;
+}
+
+.submit-button {
+  border-color: black;
+  border: 10px;
+  border-radius: 2rem;
+  font-weight: bold;
+}
+
+.set-alarm-container {
+  width: 100%;
+}
+
+.set-alarm-container .set-alarm-container-title {
+  color: black;
+  font-weight: bold;
+  font-size: 1rem;
+}
+
+.alarm {
+  justify-content: space-between;
+  border-radius: 30px;
+  padding: 0.5rem 1rem;
+  align-items: center;
+}
+.alarm .delete-alarm {
+  border-radius: 2rem;
+  background-color: #BB9CC0;
+  font-weight: bold;
+  color: wheat;
+  font-size: xx-medium;
+}
+
+.time {
+  color: #0e141b;
+  font-size: 1rem;
+  font-weight: bold;
+}
+
+
+.title {
+  background-color: #67729D;
+  align-items: center;
+  text-align: center;
+  color: black;
+}
+
+/* DIFFERENT STYLE FOR DIFF SCREEN SIZE/ */
+@media only screen and (min-width: 600px) {
+  
+  .container {
+    padding-block: 2rem;
+  }
+  .clock-content {
+    justify-content: center;
+    border-radius: 50px;
+    width: 450px;
+    min-height: auto;
+  }
+}
+
+@media only screen and (min-width: 800px) {
+  .container {
+    padding-block: 3rem; /* Adjusted padding for screens at least 800px wide */
+  }
+
+  .clock-content {
+    justify-content: center;
+    border-radius: 50px;
+    width: 600px; /* Adjusted width for screens at least 800px wide */
+    min-height: auto;
+  }
+}
