@@ -1,3 +1,4 @@
+// Selecting elements from the HTML document
 const displayTime = document.querySelector("#current-time");
 const selectHours = document.querySelector("#hours");
 const selectMinutes = document.querySelector("#minutes");
@@ -6,7 +7,7 @@ const selectAmPm = document.querySelector("#am-pm");
 const submitButton = document.querySelector("#submitButton");
 const alarmsContainer = document.querySelector("#alarms-container");
 
-// DROPDOWN MENU DETAILS
+// Dropdown menu with options 
 window.addEventListener("DOMContentLoaded", () => {
   populateDropDown(1, 12, selectHours);
   populateDropDown(0, 59, selectMinutes);
@@ -16,9 +17,10 @@ window.addEventListener("DOMContentLoaded", () => {
   loadAlarms();
 });
 
-// EVENT LISTENER FOR ALARM BUTTON
+// event listener for alarm submission button 
 submitButton.addEventListener("click", handleAlarmSubmission);
 
+// function to populate dropdown
 function populateDropDown(start, end, element) {
   for (let i = start; i <= end; i++) {
     const option = document.createElement("option");
@@ -27,7 +29,7 @@ function populateDropDown(start, end, element) {
     element.appendChild(option);
   }
 }
-// UPDATING CURRENT TIME
+// to update and display current time
 function updateCurrentTime() {
   let time = new Date();
   time = time.toLocaleTimeString("en-US", {
@@ -40,7 +42,7 @@ function updateCurrentTime() {
 
   return time;
 }
-
+// function to handle submission
 function handleAlarmSubmission(e) {
   e.preventDefault();
   const selectedHour = selectHours.value;
@@ -52,10 +54,11 @@ function handleAlarmSubmission(e) {
   setAlarm(alarmTime);
 }
 
+// function to convert selected time 
 function convertToTime(hour, minute, second, amPm) {
   return `${parseInt(hour)}:${minute}:${second} ${amPm}`;
 }
-// SET ALARM FUNCTION
+// set alarm function 
 function setAlarm(time, isFetching = false) {
   const alarmInterval = setInterval(() => {
     if (time === updateCurrentTime()) {
@@ -69,7 +72,7 @@ function setAlarm(time, isFetching = false) {
     saveAlarm(time);
   }
 }
-// ADDING ALARM BY USER
+// to add new alarm to DOM
 function addAlarmToDOM(time, intervalId) {
   const alarmElement = document.createElement("div");
   alarmElement.classList.add("alarm", "mb", "flex");
@@ -83,6 +86,7 @@ function addAlarmToDOM(time, intervalId) {
   alarmsContainer.prepend(alarmElement);
 }
 
+//  to load saved alarms from local storage
 function loadAlarms() {
   const savedAlarms = getStoredAlarms();
 
@@ -90,7 +94,7 @@ function loadAlarms() {
     setAlarm(time, true);
   });
 }
-
+// to get saved alarms from local storage
 function getStoredAlarms() {
   let alarms = [];
   const isPresent = localStorage.getItem("alarms");
@@ -98,13 +102,14 @@ function getStoredAlarms() {
 
   return alarms;
 }
-
+// to save a new alarm to local storage
 function saveAlarm(time) {
     const alarms = getStoredAlarms();
     alarms.push(time);
     localStorage.setItem("alarms", JSON.stringify(alarms));
   }
   
+  // to delete an alarm from the DOM and local storage
   function deleteAlarm(event, time, intervalId) {
     const target = event.target;
     clearInterval(intervalId);
@@ -122,3 +127,4 @@ function saveAlarm(time) {
     alarms.splice(index, 1);
     localStorage.setItem("alarms", JSON.stringify(alarms));
   }
+
