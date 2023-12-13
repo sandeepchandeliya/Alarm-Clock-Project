@@ -3,20 +3,27 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Set The Title Of The HTML Document -->
     <title>Alarm Clock</title>
-    <!-- CSS FILE -->
+    <!-- CSS File -->
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
+  <!-- Container for the title of alarm clock -->
   <div class= "title">
+    <!-- Heading for the alarm clock -->
     <h1>ALARM CLOCK </h1>
     
   </div>
+  <!-- Container for the main content of the alarm clock -->
   <div class="container flex">
     
+    <!-- Container for the clock display and alarm setting -->
     <div class="clock-content flex">
+      <!-- Display the current time with a default placeholder -->
       <div class="current-time mb" id= "current-time">_ : _ : _ </div>
       <form class="alarm-form flex mb">
+        <!-- Dropdowns for selecting hours, minutes, seconds, and AM/PM -->
         <div>
         <select name="hours" id="hours" required></select>
 
@@ -28,15 +35,17 @@
           <option value="PM">PM</option>
         </select>
         </div>
+        <!-- Button to submit and set the alarm -->
         <button class="btn submit-button" id="submitButton" type="submit">Set Alarm</button>
       </form>
+      <!-- Container for displaying set alarms -->
       <div class="set-alarm-container">
         <div class="set-alarm-container-title mb">ALARMS</div>
         <div class="alarms-container" id= "alarms-container"></div>
       </div>
     </div>
   </div>
-      <!-- JAVASCRIPT FILE -->
+      <!-- Javascript File -->
       <script src="./script.js"></script>
     
 </body>
